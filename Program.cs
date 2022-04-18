@@ -54,6 +54,18 @@ namespace BestBuyBestPractices
             {
                 Console.WriteLine(prod.Name);
             }
+
+            // ------------------------------------------------Bonus
+
+            var bonus = new DapperProductRepository(conn);
+
+            Console.WriteLine("To update a product, first enter the productID: ");
+            var newID = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter the name of the product: ");
+            var newName = Console.ReadLine();
+
+            bonus.UpdateProduct(newID, newName);
         }
     }
 }

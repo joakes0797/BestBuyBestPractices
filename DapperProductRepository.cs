@@ -25,7 +25,13 @@ namespace BestBuyBestPractices
         public void CreateProduct(string name, double price, int categoryID)
         {
             _connection.Execute("INSERT INTO PRODUCTS (Name, Price, CategoryID) VALUES (@productName, @price, @categoryID);",
-             new { productName = name, price = price, categoryID = categoryID });
+                 new { productName = name, price = price, categoryID = categoryID });
+        }
+
+        public void UpdateProduct(int productID, string newName)
+        {
+            _connection.Execute("UPDATE products SET Name = @newName WHERE ProductID = @productID",
+                 new { newName = newName, productID = productID });
         }
     }
 }
