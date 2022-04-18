@@ -20,7 +20,7 @@ namespace BestBuyBestPractices
             IDbConnection conn = new MySqlConnection(connString);
             var repo = new DapperDepartmentRepository(conn);
 
-            Console.Write("Type a new Department name: ");
+            Console.WriteLine("Type a new Department name: ");
 
             var newDepartment = Console.ReadLine();
 
@@ -31,6 +31,28 @@ namespace BestBuyBestPractices
             foreach (var dept in departments)
             {
                 Console.WriteLine(dept.Name);
+            }
+
+            // ------------------------------------------------Exercise 2
+
+            var repo2 = new DapperProductRepository(conn);
+
+            Console.WriteLine("Enter a new Product: ");
+            var newProduct = Console.ReadLine();
+
+            Console.WriteLine("What is that product's price? ");
+            var price = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("What is that product's category ID? ");
+            var categoryID = Convert.ToInt32(Console.ReadLine());
+
+            repo2.CreateProduct(newProduct, price, categoryID);
+
+            var products = repo2.GetAllProducts();
+
+            foreach (var prod in products)
+            {
+                Console.WriteLine(prod.Name);
             }
         }
     }

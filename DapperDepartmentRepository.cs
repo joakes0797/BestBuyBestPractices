@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace BestBuyBestPractices
@@ -26,7 +27,5 @@ namespace BestBuyBestPractices
             _connection.Execute("INSERT INTO DEPARTMENTS (Name) VALUES (@departmentName);",
              new { departmentName = newDepartmentName });
         }
-
-
     }
 }
