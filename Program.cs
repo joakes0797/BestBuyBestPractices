@@ -28,10 +28,14 @@ namespace BestBuyBestPractices
 
             var departments = repo.GetAllDepartments();
 
+            Console.WriteLine("Here is the new list of departments: ");
+
             foreach (var dept in departments)
             {
                 Console.WriteLine(dept.Name);
             }
+
+            Console.WriteLine("----------");
 
             // ------------------------------------------------Exercise 2
 
@@ -55,6 +59,9 @@ namespace BestBuyBestPractices
                 Console.WriteLine(prod.Name);
             }
 
+            Console.WriteLine("Product added!");
+            Console.WriteLine("----------");
+
             // ------------------------------------------------Bonus
 
             var bonus = new DapperProductRepository(conn);
@@ -62,10 +69,13 @@ namespace BestBuyBestPractices
             Console.WriteLine("To update a product, first enter the productID: ");
             var newID = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Enter the name of the product: ");
+            Console.WriteLine("Enter the new name of the product: ");
             var newName = Console.ReadLine();
 
             bonus.UpdateProduct(newID, newName);
+
+            Console.WriteLine("Product updated!");
+            Console.WriteLine("----------");
 
             // -----------------------------------------------Extra Bonus
 
@@ -75,6 +85,9 @@ namespace BestBuyBestPractices
             var prodID = Convert.ToInt32(Console.ReadLine());
 
             extraBonus.DeleteProduct(prodID);
+
+            Console.WriteLine("Product deleted!");
+            Console.WriteLine("----------");
         }
     }
 }
