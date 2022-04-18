@@ -33,5 +33,17 @@ namespace BestBuyBestPractices
             _connection.Execute("UPDATE products SET Name = @newName WHERE ProductID = @productID",
                  new { newName = newName, productID = productID });
         }
+
+        public void DeleteProduct(int productID)
+        {
+            _connection.Execute("DELETE FROM products WHERE ProductID = @productID",
+                 new { productID = productID });
+
+            _connection.Execute("DELETE FROM sales WHERE ProductID = @productID",
+                 new { productID = productID });
+
+            _connection.Execute("DELETE FROM reviews WHERE ProductID = @productID",
+                 new { productID = productID });
+        }
     }
 }
